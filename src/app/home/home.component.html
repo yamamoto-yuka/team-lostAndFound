@@ -1,0 +1,145 @@
+
+
+
+
+<div class="mainContainer">
+
+  <div class="buttonRow">
+    <a href="#"><button class="btn btn-primary submitButton">SUBMIT AN ITEM</button></a>
+  </div>
+
+  <h1 class="heading">Listings</h1>
+  <section #listcontainer class="listContainer" *ngFor="let post of posts.data; let i = index"><!--ngfor loop-->
+
+    <div class="itemCard"><!--conditional class lost or found?-->
+
+
+      <div class="row">
+        <div class="itemInfo">
+          <div class = "status">{{post.attributes.LostOrFound}}</div> <!--conditional class?-->
+          <div class="itemName" (click)="getDescription(description)">{{post.attributes.Title}}</div>
+          <div class="row">
+            <div class="date col-6"><span class="bold">Date: </span>{{post.attributes.Location}} </div>
+            <div class="location col-6"><span class="bold">Location: </span>{{post.attributes.Location}}</div>
+          </div>
+          <div class="card-image">
+            <img
+              [src]="post.attributes.Image"
+            />
+        </div>
+
+
+        <!-- <div class="itemImage col-6" ></div> -->
+      </div>
+
+
+      <!--expanded-->
+    <div #description [style.display]="status" class="expandedRow row">
+      <!-- <div class="personInfo col-6"> -->
+        <div class="card-desc">
+          {{post.attributes.Description}}
+        </div>
+      <div class="button col-6">
+        <button (click)="getInfo(contactInfo)" class="btn btn-primary claimButton">CLAIM</button>
+
+      <!-- </div> -->
+    </div>
+    <div  #contactInfo [style.display]="status">
+
+      <div class="card-container">
+        <div class="float-layout">
+          <div class="contactName"><span class="bold">Contact Name: </span>
+            {{post.attributes.Claim_name}}</div>
+             <div class="email"><span class="bold">Email: </span>{{post.attributes.Email}}</div>
+             <div class="phoneNumber" ><span class="bold">Phone Number: </span>{{post.attributes.Phonenumber}}</div>
+
+             <button (click)="closeItem(listcontainer, post.id, post.attributes.Close)" class="btn btn-primary claimButton">Close</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+</div>
+
+
+
+
+
+<!-- <h1>Lostor Found Something?</h1>
+<div class="submit_wrapper">
+  <a routerLink="/lostInput">SUBMIT AN ITEM</a>
+</div>
+<hr>
+<h2>Listings</h2> -->
+
+<!-- <div class="container">
+  <div *ngFor="let post of posts.data" class="post">
+
+    <h2>{{post.attributes.Title}}</h2>
+    <div class="image">
+        {{post.attributes.Image}}
+    </div>
+    <div class="description">
+    {{post.attributes.Description}}
+    </div>
+
+    <p>{{post.attributes.Claim}}</p>
+
+    <div>
+      <p>Date found : {{post.attributes.Date_found}}</p>
+      <p>Location : {{post.attributes.Location}}</p>
+      <p>Email: {{post.attributes.Email}}</p>
+      <p>Phone Number : {{post.attributes.Phonenumber}}</p>
+    </div>
+    <div class="btn_wrapper">
+      <a [routerLink]="['/posts', post.id]">View</a>
+    </div>
+  </div>
+</div> -->
+
+<!--
+<div class="accordion" id="accordionPanelsStayOpenExample container">
+  <div class="accordion-item" *ngFor="let post of posts.data" class="post">
+    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+      <div class="container title">
+        <div class="row">
+          <div class="col-6 title_text">
+            <h2>{{post.attributes.Title}}</h2>
+            <div class="locationDate">
+              <p>{{post.attributes.Date_found}}</p>
+              <p>{{post.attributes.Location}}</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <img class="image" src="https://cdn.vox-cdn.com/thumbor/6p3i4vIm2bWpSCt3hZUi8gIyuB8=/0x0:2040x1360/1520x1013/filters:focal(877x866:1203x1192):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/66397697/akrales_181019_3014_0770.0.jpg">
+          </div>
+        </div> -->
+          <!-- <p>Sub-heading</p> -->
+      <!-- </div>
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body">
+
+          <p class="descripton">{{post.attributes.Description}}</p>
+
+          <div class="imageContainer">
+              <img class="image" src="https://cdn.vox-cdn.com/thumbor/6p3i4vIm2bWpSCt3hZUi8gIyuB8=/0x0:2040x1360/1520x1013/filters:focal(877x866:1203x1192):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/66397697/akrales_181019_3014_0770.0.jpg">
+              <img class="image"  src="https://i.insider.com/61f968484faa730018ff3fdf?width=1000&format=jpeg&auto=webp">
+          </div>
+
+          <p>Date Found:{{post.attributes.Date_found}}</p>
+          <p>Location Found:{{post.attributes.Location}}</p> -->
+                <!-- Toggle Btn -->
+                <!-- <button (click)="getInfo()"  class="btn btn-primary">CLAM</button> -->
+
+        <!-- Contact Info -->
+
+      <!-- </div>
+    </div>
+  </div>
+</div> -->
