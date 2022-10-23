@@ -1,0 +1,38 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-wrap {
+  padding: 3rem 0;
+  flex-direction: column;
+}
+
+h1 {
+  padding-bottom: 1rem;
+  font-weight: bold;
+}
+
+.container {
+  width: 80%;
+  padding: 3rem 2rem;
+  border-bottom: 10px solid #1477EC;
+  border-right: 5px solid #1477EC;
+  border-radius: 10px;
+  background-color: #F8F2F2;
+}
+
+.required-label {
+  font-size: 0.6rem;
+  color: red;
+}
+
+@media screen and (min-width: 768px) {
+  .post-wrap {
+    padding: 6rem 5rem;
+  }
+  .container {
+    width: 70%;
+  }
+}/*# sourceMappingURL=lost-input.component.css.map */
