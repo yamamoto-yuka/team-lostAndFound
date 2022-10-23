@@ -37,13 +37,31 @@ return this.http.put(this.projectsurl + '/' + id, closeBody);
 }
 
 
-
-
-
-
-
-
 // add posts
+addPost(
+  itemName: string,
+  location: string,
+  email: string,
+  phoneNumber: string,
+  description: string,
+  imageURL: string,
+  date: string,
+  name: string
+) {
+  let data = {
+    data: {
+      Title:itemName,
+      Location:location,
+      Email:email,
+      Phonenumber:phoneNumber,
+      Description: description,
+      Image:imageURL,
+      Date_found:date,
+      Claim_name: name
+    },
+  };
+  return this.http.post<LostItem>(this.projectsurl, data);
+}
 
 // addPost(albumId_fromC:number, title_fromC:string, url_fromC:string){
 
