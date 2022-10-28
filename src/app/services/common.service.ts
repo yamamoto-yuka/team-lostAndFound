@@ -56,7 +56,58 @@ export class CommonService {
 
   // add posts
 
+
   // addPost(albumId_fromC:number, title_fromC:string, url_fromC:string){
+
+
+// return this.http.put(this.projectsurl + '/' + id, closeBody);
+// }
+
+
+// add posts
+addPost(
+  itemName: string,
+  location: string,
+  email: string,
+  phoneNumber: string,
+  description: string,
+  imageURL: string,
+  date: string,
+  name: string
+) {
+  let data = {
+    data: {
+      Title:itemName,
+      Location:location,
+      Email:email,
+      Phonenumber:phoneNumber,
+      Description: description,
+      Image:imageURL,
+      Date_found:date,
+      Claim_name: name
+    },
+  };
+  return this.http.post<LostItem>(this.projectsurl, data);
+}
+
+// addPost(albumId_fromC:number, title_fromC:string, url_fromC:string){
+
+//   let newphotobody={
+
+//         albumId_fromC: albumId_fromC,
+//         title_fromC: title_fromC,
+//         url_fromC :  url_fromC,
+
+//         // newpost:newpost (newost comes from the clinet)
+//       }
+
+//       // return this.http.post<{newPhoto:[Photo], message:any}>(this.photoUrl, newphotobody);
+//       return this.http.post<Photo>(this.photoUrl, newphotobody);
+// }
+
+
+// edit
+
 
   //   let newphotobody={
 
