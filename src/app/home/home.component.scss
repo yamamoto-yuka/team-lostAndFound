@@ -1,160 +1,93 @@
 .mainContainer{
     width:80%;
-    margin:100px auto;
-
-}
-
-
-.submit_wrapper {
-  padding: 16px;
-  background-color: cornflowerblue;
-  color: white;
-}
-
-.accordion{
-  width:80%;
-  margin:0 auto;
-}
-
-.imageContainer{
-  width:100%;
-  display:flex;
-  justify-content:center;
-
-}
-
-.imageContainer img{
-  width:150px;
-  margin:2%;
-}
-
-.descripton{
-  width:100%;
-}
-
-.btn-primary{
-  border:1px solid black;
-  padding:2 5%
-}
-
-.contact-information{
-  display: none;
-}
-
-.active{
-  display: block;
-}
-.card-desc {
-  padding: 10px;
-  text-align: left;
-  font-size: 18px;
-}
-
-.card-image {
-  display: flex;
-}
-
-div.card-image img {
-  width: 50%;
-  height: auto;
-}
-
-.title {
-  img {
-    width: 30%;
-  }
-  .title_text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    .locationDate {
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-}
-
-.buttonRow{
-  display: flex;
-    justify-content: center;
-
-}
-
-
-.submitButton{
-  border: 2px solid black;
-  color: white;
-  font-weight: bold;
-  box-shadow: 5px 5px #888888;
-
+    margin:48px auto;
 }
 
 .heading{
   padding-top: 75px;
   font-weight: bold;
   text-align: center;
+  font-size: 56px;
+}
+
+.submitBtn_wrapper{
+  display: flex;
+  justify-content: center;
+  margin: 32px auto;
+}
+
+.btn{
+  border:2px solid black;
+  background-color: #1477EC;
+  box-shadow: 5px 5px #888888;
+  font-weight: bold;
+  color: white;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .listContainer{
   padding-top: 50px;
-}
-
-.itemCard{
-  padding: 30px;
-  width: 70%;
-  border-radius: 20px;
-  background-color: #F8F2F2;
-  box-shadow: 5px 5px blue;
-  margin:0 auto;
-
-
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-
-  .itemInfo{
+  .itemCard{
+    cursor: pointer;
+    padding: 30px;
+    width: 70%;
+    border-radius: 20px;
+    background-color: #F8F2F2;
+    box-shadow: 5px 5px blue;
+    margin:0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 0.5rem;
-
-    .status{
-      color: blue;
-      font-weight: bold;
-      font-size: 1.5rem;
+    gap: 2rem;
+    .itemInfo{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.5rem;
+      height: 100%;
+      .itemName{
+        font-size: 2.4rem;
+        font-weight: bold;
+      }
+    }
+    .card-desc {
+      padding: 10px;
+      margin-bottom: 24px;
+      text-align: left;
+      font-size: 18px;
     }
 
-    .itemName{
-      font-size: 3rem;
-      font-weight: bold;
+    .contactBtn_wrapper {
+      margin-bottom: 24px;
     }
 
+    .card-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .title {
+      img {
+        width: 30%;
+      }
+      .title_text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .locationDate {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+    .claimBtn_wrapper {
+      margin-top: 24px;
+      .claimBtn {
+        background-color: #F40909;
+      }
+    }
   }
-
-  .itemImage{
-    // background-image: url(../../assets/reuse_keys_xl.jpg);
-    background-position: center center;
-    background-size: cover;
-    min-height: 200px;
-  }
-
-
-  .claimButton{
-    border: 2px solid black;
-    color: white;
-    font-weight: bold;
-    box-shadow: 5px 5px #888888;
-  }
-
-  .bold{
-    font-weight: bold;
-  }
-
-  .button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-
 }
+

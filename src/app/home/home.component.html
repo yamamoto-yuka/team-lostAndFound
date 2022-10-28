@@ -1,65 +1,62 @@
-
-<!-- Machika -->
-
-
 <div class="mainContainer">
-
-  <div class="buttonRow">
-    <a href="#"><button class="btn btn-primary submitButton">SUBMIT AN ITEM</button></a>
+  <h1 class="heading">Lost Items</h1>
+  <div class="submitBtn_wrapper">
+    <a href="#" routerLink="/lostInput">
+      <button class="btn submitButton">Submit an ITEM</button>
+    </a>
   </div>
-
-  <h1 class="heading">Listings</h1>
   <section #listcontainer class="listContainer" *ngFor="let post of posts.data; let i = index"><!--ngfor loop-->
-
     <div class="itemCard"><!--conditional class lost or found?-->
-
-
       <div class="row">
-        <div class="itemInfo">
-          <div class = "status">{{post.attributes.LostOrFound}}</div> <!--conditional class?-->
-          <div class="itemName" (click)="getDescription(description)">{{post.attributes.Title}}</div>
-          <div class="row">
-            <div class="date col-6"><span class="bold">Date: </span>{{post.attributes.Location}} </div>
-            <div class="location col-6"><span class="bold">Location: </span>{{post.attributes.Location}}</div>
+        <div class="col-6">
+          <div class="itemInfo" (click)="getDescription(description)">
+            <div class="itemName">{{post.attributes.Title}}</div>
+            <div>
+              <div class="date"><span class="bold">Date: </span>{{post.attributes.Location}} </div>
+              <div class="location"><span class="bold" class="bold">Location: </span>{{post.attributes.Location}}</div>
+            </div>
           </div>
+        </div>
+        <div class="col-6">
           <div class="card-image">
             <img
               [src]="post.attributes.Image"
             />
+          </div>
         </div>
-
-
-        <!-- <div class="itemImage col-6" ></div> -->
       </div>
-
 
       <!--expanded-->
-    <div #description [style.display]="status" class="expandedRow row">
-      <!-- <div class="personInfo col-6"> -->
+      <div #description [style.display]="status" class="expandedRow row">
         <div class="card-desc">
+          <span class="bold">Item Detail:<br></span>
           {{post.attributes.Description}}
         </div>
-      <div class="button col-6">
-        <button (click)="getInfo(contactInfo)" class="btn btn-primary claimButton">CLAIM</button>
-
-      <!-- </div> -->
-    </div>
-    <div  #contactInfo [style.display]="status">
-
-      <div class="card-container">
-        <div class="float-layout">
-          <div class="contactName"><span class="bold">Contact Name: </span>
-            {{post.attributes.Claim_name}}</div>
-             <div class="email"><span class="bold">Email: </span>{{post.attributes.Email}}</div>
-             <div class="phoneNumber" ><span class="bold">Phone Number: </span>{{post.attributes.Phonenumber}}</div>
-
-             <button (click)="closeItem(listcontainer, post.id, post.attributes.Close)" class="btn btn-primary claimButton">Close</button>
-          </div>
+        <div class="contactBtn_wrapper">
+          <button (click)="getInfo(contactInfo)" class="btn">Contact Information</button>
+        </div>
+        <div  #contactInfo [style.display]="status">
+          <div class="card-container">
+            <div class="float-layout">
+              <div class="contactName">
+                <span class="bold">Contact Name:</span>
+                {{post.attributes.Claim_name}}
+              </div>
+              <div class="email">
+                <span class="bold">Email: </span>{{post.attributes.Email}}
+              </div>
+              <div class="phoneNumber" >
+                <span class="bold">Phone Number: </span>{{post.attributes.Phonenumber}}
+              </div>
+              <div class="claimBtn_wrapper">
+                <button (click)="closeItem(listcontainer, post.id, post.attributes.Close)" class="btn claimBtn">
+                  Claim
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
     </div>
   </section>
 </div>

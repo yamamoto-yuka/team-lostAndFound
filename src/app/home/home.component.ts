@@ -10,13 +10,53 @@ export class HomeComponent implements OnInit {
 
   posts:any = [];
   showInfo:boolean = false;
-
-
-
-
   hidden:boolean=true;
+  status="none";
+  public isCollapsed: boolean[] = [];
 
   constructor(private http:CommonService) { }
+
+  getInfo( contactInfo:any) {
+    // Do logic here
+    // console.log("contact info is " , contactInfo)
+    if(contactInfo.style.display == "none"){
+      contactInfo.style.display = "block"; // example: "#f00"
+    }else{
+      contactInfo.style.display = "none";
+    }
+  }
+
+  getDescription(description:any){
+    if(description.style.display == "none"){
+      description.style.display = "block"; // example: "#f00"
+    }else{
+      description.style.display = "none";
+    }
+  }
+
+  closeItem(listcontainer:any, id:number, close:boolean){
+    if(listcontainer.style.display == "none"){
+      listcontainer.style.display = "block"; // example: "#f00"
+    }else{
+      listcontainer.style.display = "none";
+    }
+    close = !close;
+    this.http.update(id).subscribe(res=>{
+      // let closeBody={
+      //   "data":{
+      //     "Close":!close
+      //   }
+      // }
+      console.log("res is ", res);
+    })
+  }
+
+  ngOnInit(): void {
+    this.http.getAllposts().subscribe(posts =>{
+      this.posts = posts;
+      console.log(this.posts)
+   })
+  }
 
   // json:LostItem[]=[ {"data":{id:1,
   //   attributes:{
@@ -43,101 +83,16 @@ export class HomeComponent implements OnInit {
   //     // this.hidden = !this.hidden;
   // }
 
-//   getInfo(button: HTMLButtonElement, contactInfo:any) {
-//     // Do logic here
-//     // button.style.backgroundColor = desiredColor;
-//     this.showInfo = !this.showInfo;
-//     console.log(button);
-//     console.log(contactInfo);
+  //   getInfo(button: HTMLButtonElement, contactInfo:any) {
+  //     // Do logic here
+  //     // button.style.backgroundColor = desiredColor;
+  //     this.showInfo = !this.showInfo;
+  //     console.log(button);
+  //     console.log(contactInfo);
 
 
-//     // this.showInfo = !this.showInfo;
-// }
-
-
-
-status="none";
-
-
-getInfo( contactInfo:any) {
-  // Do logic here
-
-
-
-
-  // console.log("contact info is " , contactInfo)
-  if(contactInfo.style.display == "none"){
-  contactInfo.style.display = "block"; // example: "#f00"
-}else{
-  contactInfo.style.display = "none";
-}
-
-}
-
-getDescription(description:any){
-  if(description.style.display == "none"){
-    description.style.display = "block"; // example: "#f00"
-  }else{
-    description.style.display = "none";
-  }
-}
-
-closeItem(listcontainer:any, id:number, close:boolean){
-
-
-  if(listcontainer.style.display == "none"){
-    listcontainer.style.display = "block"; // example: "#f00"
-  }else{
-    listcontainer.style.display = "none";
-
-  }
-
-
-  close = !close;
-
-this.http.update(id).subscribe(res=>{
-
-  // let closeBody={
-
-  //   "data":{
-
-  //     "Close":!close
-
-  //   }
-
-
+  //     // this.showInfo = !this.showInfo;
   // }
-
-  console.log("res is ", res);
-
-
-
-})
-
-
-
-}
-
-  public isCollapsed: boolean[] = [];
-
-  ngOnInit(): void {
-    this.http.getAllposts().subscribe(posts =>{
-      this.posts = posts;
-      console.log(this.posts)
-   })
-
-
-
-
-
-  }
-
-
-
-
-
-
-
 
 
 
