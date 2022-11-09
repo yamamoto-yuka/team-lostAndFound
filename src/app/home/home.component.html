@@ -1,3 +1,7 @@
+
+
+
+
 <div class="mainContainer">
   <h1 class="heading">Lost Items</h1>
   <div class="submitBtn_wrapper">
@@ -5,24 +9,38 @@
       <button class="btn submitButton">Submit an ITEM</button>
     </a>
   </div>
-  <section #listcontainer class="listContainer" *ngFor="let post of posts.data; let i = index"><!--ngfor loop-->
+  <section #listcontainer class="listContainer" *ngFor="let post of posts; let i = index"><!--ngfor loop-->
     <div class="itemCard"><!--conditional class lost or found?-->
       <div class="row">
         <div class="col-6">
           <div class="itemInfo" (click)="getDescription(description)">
-            <div class="itemName">{{post.attributes.Title}}</div>
+            <div class="itemName">{{post.title}}</div>
             <div>
-              <div class="date"><span class="bold">Date: </span>{{post.attributes.Location}} </div>
-              <div class="location"><span class="bold" class="bold">Location: </span>{{post.attributes.Location}}</div>
+
+              <div><span class="bold">Date Posted: </span>{{postDates[i]}}</div>
+              <div><span class="bold">Date Found: </span>{{post.date_found}}</div>
+
+              <div><span class="bold">Location: </span>{{post.location}}</div>
             </div>
           </div>
         </div>
         <div class="col-6">
-          <div class="card-image">
-            <img
-              [src]="post.attributes.Image"
-            />
-          </div>
+          <div  *ngIf=" post.image.includes('png')|| post.image.includes('jpg') || post.image.includes('jpeg'); then uploadedImage else urlImage">  </div>
+
+
+              <ng-template  #urlImage><div class="card-image" ><img
+                [src]="post.image"
+              /></div></ng-template>
+
+
+                         <!-- <img [src] = " 'https://lostandfoundapis.herokuapp.com/' + post.image"> -->
+              <ng-template #uploadedImage>
+                <div class="card-image" ><img [src]= " 'http://localhost:3000/' + post.image"> </div></ng-template>
+
+
+
+
+
         </div>
       </div>
 
@@ -30,7 +48,7 @@
       <div #description [style.display]="status" class="expandedRow row">
         <div class="card-desc">
           <span class="bold">Item Detail:<br></span>
-          {{post.attributes.Description}}
+          {{post.description}}
         </div>
         <div class="contactBtn_wrapper">
           <button (click)="getInfo(contactInfo)" class="btn">Contact Information</button>
@@ -40,16 +58,16 @@
             <div class="float-layout">
               <div class="contactName">
                 <span class="bold">Contact Name:</span>
-                {{post.attributes.Claim_name}}
+                {{post.contact_name}}
               </div>
               <div class="email">
-                <span class="bold">Email: </span>{{post.attributes.Email}}
+                <span class="bold">Email: </span>{{post.email}}
               </div>
               <div class="phoneNumber" >
-                <span class="bold">Phone Number: </span>{{post.attributes.Phonenumber}}
+                <span class="bold">Phone Number: </span>{{post.phonenumber}}
               </div>
               <div class="claimBtn_wrapper">
-                <button (click)="closeItem(listcontainer, post.id, post.attributes.Close)" class="btn claimBtn">
+                <button (click)="closeItem(listcontainer, post._id, post.claimed)" class="btn claimBtn">
                   Claim
                 </button>
               </div>
@@ -60,42 +78,6 @@
     </div>
   </section>
 </div>
-
-
-
-
-
-<!-- <h1>Lostor Found Something?</h1>
-<div class="submit_wrapper">
-  <a routerLink="/lostInput">SUBMIT AN ITEM</a>
-</div>
-<hr>
-<h2>Listings</h2> -->
-
-<!-- <div class="container">
-  <div *ngFor="let post of posts.data" class="post">
-
-    <h2>{{post.attributes.Title}}</h2>
-    <div class="image">
-        {{post.attributes.Image}}
-    </div>
-    <div class="description">
-    {{post.attributes.Description}}
-    </div>
-
-    <p>{{post.attributes.Claim}}</p>
-
-    <div>
-      <p>Date found : {{post.attributes.Date_found}}</p>
-      <p>Location : {{post.attributes.Location}}</p>
-      <p>Email: {{post.attributes.Email}}</p>
-      <p>Phone Number : {{post.attributes.Phonenumber}}</p>
-    </div>
-    <div class="btn_wrapper">
-      <a [routerLink]="['/posts', post.id]">View</a>
-    </div>
-  </div>
-</div> -->
 
 <!--
 <div class="accordion" id="accordionPanelsStayOpenExample container">
