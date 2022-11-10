@@ -11,6 +11,8 @@ import { PostdetailsComponent } from './postdetails/postdetails.component';
 import { LostInputComponent } from './lost-input/lost-input.component';
 import { FoundInputComponent } from './found-input/found-input.component';
 import { LostEditComponent } from './lost-edit/lost-edit.component';
+import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-5.x';
+import { Cloudinary } from 'cloudinary-core';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { LostEditComponent } from './lost-edit/lost-edit.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CloudinaryModule.forRoot({Cloudinary},
+    { cloud_name: 'your_cloud_name' } as CloudinaryConfiguration),
   ],
   providers: [],
   bootstrap: [AppComponent]

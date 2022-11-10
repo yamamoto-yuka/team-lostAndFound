@@ -8,16 +8,25 @@ import { LostItem } from '../interface/interface';
 export class CommonService {
   constructor(private http: HttpClient) {}
 
-  private projectsurl = 'https://cms.yukayamamoto.me/api/lost-and-founds';
+  // private projectsurl = 'https://cms.yukayamamoto.me/api/lost-and-founds';
+
+  // private newProjectsUrl = 'https://lostandfoundapis.herokuapp.com';
+  private newProjectsUrl = 'http://localhost:3000';
+  // private newProjectsUrl = 'https://lostandfoundapp-api.herokuapp.com';
+
 
   // get
 
-  getAllposts() {
-    return this.http.get(this.projectsurl);
+  // getAllposts() {
+  //   return this.http.get(this.projectsurl);
+  // }
+
+  getAllposts(){
+    return this.http.get(this.newProjectsUrl)
   }
 
   getPostByID(id: number) {
-    return this.http.get<{ data: LostItem }>(this.projectsurl + '/' + id);
+    return this.http.get<{ data: LostItem }>(this.newProjectsUrl + '/' + id);
   }
 
   update(id: number) {
@@ -26,7 +35,7 @@ export class CommonService {
         Close: true,
       },
     };
-    return this.http.put(this.projectsurl + '/' + id, closeBody);
+    return this.http.put(this.newProjectsUrl + '/' + id, closeBody);
   }
 
   editPost(
@@ -51,9 +60,20 @@ export class CommonService {
         Contact_name: name
       }
     };
-    return this.http.put<LostItem>(this.projectsurl, data);
+    return this.http.put<LostItem>(this.newProjectsUrl, data);
   }
 
+
+  uploadFile(formdata:any){
+
+    // let data={ title:title,
+    //   formdata:formdata
+    // };
+
+    return this.http.post(this.newProjectsUrl + "/upload", formdata);
+
+
+  }
   // add posts
 
 
@@ -65,30 +85,49 @@ export class CommonService {
 
 
 // add posts
-addPost(
-  itemName: string,
-  location: string,
-  email: string,
-  phoneNumber: string,
-  description: string,
-  imageURL: string,
-  date: string,
-  name: string
-) {
-  let data = {
-    data: {
-      Title:itemName,
-      Location:location,
-      Email:email,
-      Phonenumber:phoneNumber,
-      Description: description,
-      Image:imageURL,
-      Date_found:date,
-      Claim_name: name
-    },
+// addPost(title:string, image:string,location:string,description:string,identifying_question:string,claimed:boolean,contact_name:string,email:string,phonenumber:string,date_found:string) {
+//   let data = {
+//     title: title,
+//     image:image,
+//     location: location,
+//     description: description,
+//     identifying_question:identifying_question,
+//     claimed: claimed,
+//     contact_name: contact_name,
+//     email: email,
+//     phonenumber: phonenumber,
+//     date_found: date_found,
+//     }
+//     return this.http.post(this.newProjectsUrl + "/newItem", data);
+
+//   };
+
+// }
+
+addPost(formdata:any) {
+  // let data = {
+  //   title: title,
+  //   image:image,
+  //   location: location,
+  //   description: description,
+  //   identifying_question:identifying_question,
+  //   claimed: claimed,
+  //   contact_name: contact_name,
+  //   email: email,
+  //   phonenumber: phonenumber,
+  //   date_found: date_found,
+  //   }
+    return this.http.post(this.newProjectsUrl + "/newItem", formdata);
+
   };
-  return this.http.post<LostItem>(this.projectsurl, data);
+
 }
+
+
+
+// uploadFile(formdata:any){
+//    return this.http.post(this.newProjectsUrl + "/uploadFile", formdata)
+// }
 
 // addPost(albumId_fromC:number, title_fromC:string, url_fromC:string){
 
@@ -134,4 +173,4 @@ addPost(
   //   return this.http.put<{message:any, update:boolean}>(this.crudUpdateURL, updateCrudBody)
 
   // }
-}
+

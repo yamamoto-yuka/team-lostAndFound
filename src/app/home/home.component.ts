@@ -9,6 +9,7 @@ import {CommonService} from '../services/common.service';
 export class HomeComponent implements OnInit {
 
   posts:any = [];
+  postDates:any = [];
   showInfo:boolean = false;
   hidden:boolean=true;
   status="none";
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
   getInfo( contactInfo:any) {
     // Do logic here
     // console.log("contact info is " , contactInfo)
+
     if(contactInfo.style.display == "none"){
       contactInfo.style.display = "block"; // example: "#f00"
     }else{
@@ -54,7 +56,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.http.getAllposts().subscribe(posts =>{
       this.posts = posts;
-      console.log(this.posts)
+     for (const item in posts){
+        let array = this.posts[item].date.split("T");
+        this.postDates.push(array[0]);
+        array = [];
+     }
+
    })
   }
 
