@@ -1,22 +1,18 @@
 export interface LostItem{
-    id:number,
-    attributes:{
-      Title: string;
-      Location: string;
-      Claim: boolean;
-      Found: boolean;
-      LostOrFound: string;
-      Email: string;
-      Phonenumber: string;
-      Description: string;
-      Image: string;
-      Date_found: string;
-      Claim_name: string;
-      createdAt: string;
-      updatedAt: string;
-      publishedAt: string;
-      Identifying_question: string;
-      Close: boolean;
+    _id:string,
+      title: string;
+      image: string;
+      location: boolean;
+      description: boolean;
+      identifying_question: string;
+      claimed: boolean;
+      contact_name: string;
+      email: string;
+      phonenumber: string;
+      date:string;
+      date_found: string;
+
+
 
       // 今後修正するinterface
       // Title:string;
@@ -29,5 +25,5 @@ export interface LostItem{
       // Contact_name: string;
       // Email : string;
       // Phonenumber:string;
-    }
+
 }

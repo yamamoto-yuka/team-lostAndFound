@@ -9,10 +9,11 @@ import {CommonService} from '../services/common.service';
 export class HomeComponent implements OnInit {
 
   posts:any = [];
+  postDates:any = [];
   showInfo:boolean = false;
   hidden:boolean=true;
   status="none";
-  postDates:any = [];
+  // postDates:any = [];
   dateString:any = [];
   claim:boolean = false;
   public isCollapsed: boolean[] = [];

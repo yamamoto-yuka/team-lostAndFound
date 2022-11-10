@@ -1,3 +1,7 @@
+
+
+
+
 <div class="mainContainer">
   <h1 class="heading">Lost Items</h1>
   <div class="submitBtn_wrapper">
@@ -17,10 +21,12 @@
             <div>
               <div class="date"><span class="bold">Date: </span>{{post.date_found}} </div>
               <div class="location"><span class="bold" class="bold">Location: </span>{{post.location}}</div>
+
             </div>
           </div>
         </div>
         <div class="col-6">
+
           <div class="card-image">
             <img
               [src]="post.image"
@@ -30,6 +36,7 @@
       </div>
 
       <!--expanded-->
+
       <div #description [style.display]="status">
         <div class="descWrapper">
           <div class="card-desc">
@@ -66,42 +73,6 @@
     </div>
   </section>
 </div>
-
-
-
-
-
-<!-- <h1>Lostor Found Something?</h1>
-<div class="submit_wrapper">
-  <a routerLink="/lostInput">SUBMIT AN ITEM</a>
-</div>
-<hr>
-<h2>Listings</h2> -->
-
-<!-- <div class="container">
-  <div *ngFor="let post of posts.data" class="post">
-
-    <h2>{{post.attributes.Title}}</h2>
-    <div class="image">
-        {{post.attributes.Image}}
-    </div>
-    <div class="description">
-    {{post.attributes.Description}}
-    </div>
-
-    <p>{{post.attributes.Claim}}</p>
-
-    <div>
-      <p>Date found : {{post.attributes.Date_found}}</p>
-      <p>Location : {{post.attributes.Location}}</p>
-      <p>Email: {{post.attributes.Email}}</p>
-      <p>Phone Number : {{post.attributes.Phonenumber}}</p>
-    </div>
-    <div class="btn_wrapper">
-      <a [routerLink]="['/posts', post.id]">View</a>
-    </div>
-  </div>
-</div> -->
 
 <!--
 <div class="accordion" id="accordionPanelsStayOpenExample container">

@@ -26,7 +26,7 @@ import { LostEditComponent } from './lost-edit/lost-edit.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
