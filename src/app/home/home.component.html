@@ -25,18 +25,20 @@
           </div>
         </div>
         <div class="col-6">
-          <div  *ngIf=" post.image.includes('png')|| post.image.includes('jpg') || post.image.includes('jpeg'); then uploadedImage else urlImage">  </div>
+          <!-- <div  *ngIf=" post.image.includes('png')|| post.image.includes('jpg') || post.image.includes('jpeg'); then uploadedImage else urlImage">  </div> -->
 
 
-              <ng-template  #urlImage><div class="card-image" ><img
+              <!-- <ng-template  #urlImage><div class="card-image" ><img
                 [src]="post.image"
-              /></div></ng-template>
-
+              /></div></ng-template> -->
+              <div class="card-image" >
+              <img [src]="post.image">
+            </div>
 
                          <!-- <img [src] = " 'https://lostandfoundapis.herokuapp.com/' + post.image"> -->
-              <ng-template #uploadedImage>
+              <!-- <ng-template #uploadedImage>
                 <div class="card-image" ><img [src]= " 'http://localhost:3000/' + post.image"> </div></ng-template>
-
+ -->
 
 
 

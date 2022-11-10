@@ -44,7 +44,7 @@
       <div class="mb-3">
         <label for="description" class="form-label">Image <span class="required-label">*Required</span></label>
 
-        <input type="file" (change)="trackFile($event)" class="form-control" id="imageUrl" name="image">
+        <input   [(ngModel)]="image" type="file" (change)="trackFile($event)" class="form-control" id="imageUrl" name="image">
       </div>
       <!-- <div
         class="alert alert-danger"

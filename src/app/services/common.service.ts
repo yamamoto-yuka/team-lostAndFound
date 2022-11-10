@@ -84,20 +84,39 @@ export class CommonService {
 
 
 // add posts
-addPost(title:string, image:string,location:string,description:string,identifying_question:string,claimed:boolean,contact_name:string,email:string,phonenumber:string,date_found:string) {
-  let data = {
-    title: title,
-    image:image,
-    location: location,
-    description: description,
-    identifying_question:identifying_question,
-    claimed: claimed,
-    contact_name: contact_name,
-    email: email,
-    phonenumber: phonenumber,
-    date_found: date_found,
-    }
-    return this.http.post(this.newProjectsUrl + "/newItem", data);
+// addPost(title:string, image:string,location:string,description:string,identifying_question:string,claimed:boolean,contact_name:string,email:string,phonenumber:string,date_found:string) {
+//   let data = {
+//     title: title,
+//     image:image,
+//     location: location,
+//     description: description,
+//     identifying_question:identifying_question,
+//     claimed: claimed,
+//     contact_name: contact_name,
+//     email: email,
+//     phonenumber: phonenumber,
+//     date_found: date_found,
+//     }
+//     return this.http.post(this.newProjectsUrl + "/newItem", data);
+
+//   };
+
+// }
+
+addPost(formdata:any) {
+  // let data = {
+  //   title: title,
+  //   image:image,
+  //   location: location,
+  //   description: description,
+  //   identifying_question:identifying_question,
+  //   claimed: claimed,
+  //   contact_name: contact_name,
+  //   email: email,
+  //   phonenumber: phonenumber,
+  //   date_found: date_found,
+  //   }
+    return this.http.post(this.newProjectsUrl + "/newItem", formdata);
 
   };
 
