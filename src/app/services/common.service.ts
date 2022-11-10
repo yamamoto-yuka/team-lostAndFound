@@ -8,7 +8,8 @@ import { LostItem } from '../interface/interface';
 export class CommonService {
   constructor(private http: HttpClient) {}
 
-  private projectsurl = 'https://cms.yukayamamoto.me/api/lost-and-founds';
+  // private projectsurl = 'https://cms.yukayamamoto.me/api/lost-and-founds';
+  private projectsurl = 'https://lostandfoundapis.herokuapp.com/';
 
   // get
 
@@ -20,13 +21,11 @@ export class CommonService {
     return this.http.get<{ data: LostItem }>(this.projectsurl + '/' + id);
   }
 
-  update(id: number) {
-    let closeBody = {
-      data: {
-        Close: true,
-      },
+  claim(id: number) {
+    let claim = {
+      claimed:true
     };
-    return this.http.put(this.projectsurl + '/' + id, closeBody);
+    return this.http.put(this.projectsurl + '/editItem/' + id, claim);
   }
 
   editPost(

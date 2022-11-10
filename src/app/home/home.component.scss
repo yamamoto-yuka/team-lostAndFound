@@ -22,10 +22,19 @@
   box-shadow: 5px 5px #888888;
   font-weight: bold;
   color: white;
+  padding: 0.5rem 3rem;
+  &:hover {
+    background-color: #4f96ec;
+  }
 }
 
 .bold {
   font-weight: bold;
+}
+
+.black {
+  background-color: red !important;
+  filter: saturate(70%);
 }
 
 .listContainer{
@@ -47,13 +56,20 @@
       justify-content: space-between;
       gap: 0.5rem;
       height: 100%;
+      .claimMessage {
+        color: #F40909 !important;
+      }
       .itemName{
         font-size: 2.4rem;
         font-weight: bold;
       }
     }
+    .descWrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 3rem;
+    }
     .card-desc {
-      padding: 10px;
       margin-bottom: 24px;
       text-align: left;
       font-size: 18px;
@@ -82,12 +98,23 @@
         }
       }
     }
-    .claimBtn_wrapper {
-      margin-top: 24px;
+    .Btn_wrapper {
+      margin: 2.4rem 0;
+      display: flex;
+      justify-content: center;
       .claimBtn {
         background-color: #F40909;
+        margin-right: 2rem;
+        &:hover {
+          background-color: #ee7171;
+        }
       }
+
     }
   }
+  .itemCard:hover{
+    border: 3px solid blue;
+  }
+
 }
 
