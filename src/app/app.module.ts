@@ -10,6 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { PostdetailsComponent } from './postdetails/postdetails.component';
 import { LostInputComponent } from './lost-input/lost-input.component';
 import { FoundInputComponent } from './found-input/found-input.component';
+<<<<<<< Updated upstream
+=======
+import { LostEditComponent } from './lost-edit/lost-edit.component';
+import { MainHeaderComponent } from './main-header/main-header.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -19,6 +24,11 @@ import { FoundInputComponent } from './found-input/found-input.component';
     PostdetailsComponent,
     LostInputComponent,
     FoundInputComponent,
+<<<<<<< Updated upstream
+=======
+    LostEditComponent,
+    MainHeaderComponent,
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

@@ -126,7 +126,7 @@
 
 
       <!-- Image -->
-      <div class="mb-3">
+      <!-- <div class="mb-3">
         <label for="iamge" class="form-label">Item Image URL <span class="required-label">*Required</span></label>
         <input
           name="image"
@@ -165,10 +165,12 @@
       <!-- <div
         class="alert "
         role="alert"
-        *ngIf="date_.touched && date_.invalid"
+        *ngIf="identifying_question_.touched && identifying_question_.invalid"
       >
         Please enter
-      </div>
+      </div> -->
+
+      <!-- Contact name -->
 
       <div class="mb-2 box half">
         <label for="contact_name" class="form-label">
@@ -186,7 +188,7 @@
         <div
         class="alert "
         role="alert"
-        *ngIf="location_.touched && location_.invalid"
+        *ngIf="contact_name_.touched && contact_name_.invalid"
       >
         Please enter.
       </div>
@@ -218,28 +220,6 @@
       </div>
       </div>
 
-      <!-- Email-->
-      <div class="mb-3">
-        <label for="email" class="form-label">Finder Email <span class="required-label">*Required</span></label>
-        <input
-          name="email"
-          #email_="ngModel"
-          [(ngModel)]="email"
-          id="email"
-          type="text"
-          class="form-control"
-          required
-          minlength="1"
-          pattern="^[^s@]+@[^s@]+.[^s@]{2,}$"
-        />
-      </div>
-      <div
-        class="alert alert-danger"
-        role="alert"
-        *ngIf="email_.touched && email_.invalid"
-      >
-        Please enter
-      </div>
 
       <!-- Phone Number-->
       <div class="mb-2 box half">
@@ -257,12 +237,12 @@
 
       <div class="wrap box full">
         <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
-          SUBMIT
+          EDIT
         </button>
         <!-- | <a routerLink="/">Back to Home</a> -->
         <!-- <div class="mt-3" [hidden]="formMessageHidden">
           Success!
-        </div>
+        </div> -->
       </div>
     </form>
   </div>
