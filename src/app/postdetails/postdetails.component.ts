@@ -17,7 +17,7 @@ export class PostdetailsComponent implements OnInit {
   ngOnInit(): void {
     let id:any = this.route.snapshot.paramMap.get("id");
     this.cs.getPostByID(id).subscribe(res => {
-      this.postdetail = res.data;
+      // this.postdetail = res.data;
       console.log(this.postdetail);
     })
   }

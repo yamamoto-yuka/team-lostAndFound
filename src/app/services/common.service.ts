@@ -23,14 +23,14 @@ export class CommonService {
   }
 
   getPostByID(id: number) {
-    return this.http.get<{ data: LostItem }>(this.newProjectsUrl + '/' + id);
+    return this.http.get(this.newProjectsUrl + id);
   }
 
   claim(id: number) {
     let claim = {
       claimed:true
     };
-    return this.http.put(this.newProjectsUrl + '/' + id, claim);
+    return this.http.put(this.newProjectsUrl + 'updateClaim/' + id, JSON.stringify(claim));
   }
 
   editPost(
