@@ -11,6 +11,7 @@ import { PostdetailsComponent } from './postdetails/postdetails.component';
 import { LostInputComponent } from './lost-input/lost-input.component';
 import { FoundInputComponent } from './found-input/found-input.component';
 import { LostEditComponent } from './lost-edit/lost-edit.component';
+import { TopHeaderComponent } from './top-header/top-header.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LostEditComponent } from './lost-edit/lost-edit.component';
     LostInputComponent,
     FoundInputComponent,
     LostEditComponent,
+    TopHeaderComponent,
   ],
   imports: [
     BrowserModule,

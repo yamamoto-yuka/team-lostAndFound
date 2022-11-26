@@ -78,7 +78,7 @@ export class LostInputComponent implements OnInit {
     this.cs.addPost(formdata).subscribe(data =>{
           console.log(data)
           console.log("checking from client")
-
+          this.router.navigate(['/']);
      })
 
 
@@ -104,8 +104,8 @@ export class LostInputComponent implements OnInit {
     // })
 
 
-    window.location.reload();
-    window.scrollTo(0, 0);
+    // window.location.reload();
+    // window.scrollTo(0, 0);
 
     // form.reset();
 
@@ -125,6 +125,8 @@ export class LostInputComponent implements OnInit {
 
 
   ngOnInit(): void {
+    // ------------------- For testing
+    // this.router.navigate(['/']);
   }
 
 }

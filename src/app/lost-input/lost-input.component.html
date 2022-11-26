@@ -1,84 +1,102 @@
-<div class="post-wrap wrap mt-5">
-  <h1>Lost Item</h1>
-
-
-
-
-
-
-
+<app-top-header></app-top-header>
+<div class="post-wrap wrap">
 
   <div class="container">
-    <div class="contact-desc"></div>
-    <form enctype="multipart/form-data"
+    <h1 class="form-title">Lost Item</h1>
+    <form
+      class="form-container"
+      enctype="multipart/form-data"
       #form="ngForm"
-      (ngSubmit)="
-        submit(
-
-        )
-      "
+      (ngSubmit)="submit()"
     >
-
       <!-- Item Name -->
-      <div class="mb-3">
-        <label for="itemName" class="form-label">Item Name <span class="required-label">*Required</span></label>
+      <div class="mb-2 box half">
+        <label for="itemName" class="form-label">Item Name</label>
         <input
-        name="title"
-        #itemNanme="ngModel"
-        [(ngModel)]="title"
-        id="title"
-        type="text"
-        class="form-control"
-        required
-        minlength="1"
-      />
-      </div>
-      <div
-        class="alert alert-danger"
+          name="title"
+          #itemNanme="ngModel"
+          [(ngModel)]="title"
+          id="title"
+          type="text"
+          class="form-control"
+          required
+          minlength="1"
+        />
+        <div
+        class="alert"
         role="alert"
         *ngIf="itemNanme.touched && itemNanme.invalid"
       >
         Please enter item name.
       </div>
-       <!-- image -->
-      <div class="mb-3">
-        <label for="description" class="form-label">Image <span class="required-label">*Required</span></label>
 
-        <input   [(ngModel)]="image" type="file" (change)="trackFile($event)" class="form-control" id="imageUrl" name="image">
       </div>
-      <!-- <div
+
+      <!-- Location -->
+      <div class="mb-2 box half">
+        <label for="location" class="form-label">Location Found</label>
+        <input
+          name="location"
+          #location_="ngModel"
+          [(ngModel)]="location"
+          id="location"
+          type="text"
+          class="form-control"
+          required
+          minlength="1"
+        />
+        <div
+        class="alert"
+        role="alert"
+        *ngIf="location_.touched && location_.invalid"
+      >
+        Please enter
+      </div>
+
+      </div>
+
+      <!-- Date -->
+      <div class="mb-2 box half">
+        <label for="date" class="form-label">Date Found</label>
+        <input
+          name="date_found"
+          #date_="ngModel"
+          [(ngModel)]="date_found"
+          id="date"
+          type="date"
+          class="form-control"
+          required
+        />
+        <div class="alert" role="alert" *ngIf="date_.touched && date_.invalid">
+          Please enter
+        </div>  
+      </div>
+ 
+      <!-- image -->
+      <div class="mb-2 box full">
+        <label for="description" class="form-label">Image </label>
+
+        <input
+          [(ngModel)]="image"
+          type="file"
+          (change)="trackFile($event)"
+          class="form-control"
+          id="imageUrl"
+          name="image"
+        />
+             <!-- <div
         class="alert alert-danger"
         role="alert"
         *ngIf="image.touched && image.invalid"
       >
         Please enter
       </div> -->
-
-            <!-- Location -->
-            <div class="mb-3">
-              <label for="location" class="form-label">Location Found <span class="required-label">*Required</span></label>
-              <input
-                name="location"
-                #location_="ngModel"
-                [(ngModel)]="location"
-                id="location"
-                type="text"
-                class="form-control"
-                required
-                minlength="1"
-              />
-            </div>
-            <div
-              class="alert alert-danger"
-              role="alert"
-              *ngIf="location_.touched && location_.invalid"
-            >
-              Please enter
-            </div>
+      </div>
+ 
 
       <!-- Desc -->
-      <div class="mb-3">
-        <label for="description" class="form-label">Description <span class="required-label">*Required</span></label>
+      <div class="mb-2 box full">
+        <label for="description" class="form-label">Description</label>
         <textarea
           name="description"
           #description_="ngModel"
@@ -89,14 +107,15 @@
           required
           minlength="1"
         ></textarea>
-      </div>
-      <div
-        class="alert alert-danger"
+        <div
+        class="alert"
         role="alert"
         *ngIf="description_.touched && description_.invalid"
       >
         Please enter
       </div>
+      </div>
+
 
       <!-- Image -->
       <!-- <div class="mb-3">
@@ -122,9 +141,10 @@
 
       <!-- Indentifying question -->
 
-
-      <div class="mb-3">
-        <label for="identifying_question" class="form-label">Indentifying Question</label>
+      <div class="mb-2 box full">
+        <label for="identifying_question" class="form-label"
+          >Indentifying Question</label
+        >
         <textarea
           name="identifying_question"
           #identifying_question_="ngModel"
@@ -132,8 +152,6 @@
           id="identifying_question"
           type="textarea"
           class="form-control"
-
-
         ></textarea>
       </div>
       <!-- <div
@@ -146,9 +164,9 @@
 
       <!-- Contact name -->
 
-      <div class="mb-3">
-        <label for="contact_name" class="form-label"> Contact Name <span class="required-label">*Required</span> </label>
-        <textarea
+      <div class="mb-2 box half">
+        <label for="contact_name" class="form-label"> Contact Name </label>
+        <input
           name="contact_name"
           #contact_name_="ngModel"
           [(ngModel)]="contact_name"
@@ -156,86 +174,56 @@
           type="text"
           class="form-control"
           required
-
-        ></textarea>
-      </div>
-      <div
-        class="alert alert-danger"
+        />
+        <div
+        class="alert"
         role="alert"
         *ngIf="contact_name_.touched && contact_name_.invalid"
       >
         Please enter
       </div>
-
-          <!-- Email-->
-          <div class="mb-3">
-            <label for="email" class="form-label">Finder Email <span class="required-label">*Required</span></label>
-            <input
-              name="email"
-              #email_="ngModel"
-              [(ngModel)]="email"
-              id="email"
-              type="text"
-              class="form-control"
-              required
-              minlength="1"
-              pattern="^[^s@]+@[^s@]+.[^s@]{2,}$"
-            />
-          </div>
-          <div
-            class="alert alert-danger"
-            role="alert"
-            *ngIf="email_.touched && email_.invalid"
-          >
-            Please enter
-          </div>
-
-          <!-- Phone Number-->
-          <div class="mb-3">
-            <label for="phoneNumber" class="form-label">Finder Phone Number </label>
-            <input
-              name="phoneNumber"
-              #phoneNumber_="ngModel"
-              [(ngModel)]="phonenumber"
-              id="phoneNumber"
-              type="tel"
-              class="form-control"
-              required
-            />
-          </div>
+      </div>
 
 
-      <!-- Date -->
-      <div class="mb-3">
-        <label for="date" class="form-label">Date Found <span class="required-label">*Required</span></label>
+      <!-- Email-->
+      <div class="mb-2 box half">
+        <label for="email" class="form-label">Finder Email</label>
         <input
-          name="date_found"
-          #date_="ngModel"
-          [(ngModel)]="date_found"
-          id="date"
-          type="date"
+          name="email"
+          #email_="ngModel"
+          [(ngModel)]="email"
+          id="email"
+          type="text"
+          class="form-control"
+          required
+          minlength="1"
+          pattern="^[^s@]+@[^s@]+.[^s@]{2,}$"
+        />
+        <div class="alert" role="alert" *ngIf="email_.touched && email_.invalid">
+          Please enter
+        </div>
+      </div>
+
+
+      <!-- Phone Number-->
+      <div class="mb-2 box half">
+        <label for="phoneNumber" class="form-label">Finder Phone Number </label>
+        <input
+          name="phoneNumber"
+          #phoneNumber_="ngModel"
+          [(ngModel)]="phonenumber"
+          id="phoneNumber"
+          type="tel"
           class="form-control"
           required
         />
       </div>
-      <div
-        class="alert alert-danger"
-        role="alert"
-        *ngIf="date_.touched && date_.invalid"
-      >
-        Please enter
-      </div>
 
-
-
-
-
-
-
-      <div class="wrap">
-        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+      <div class="wrap box btn-box">
+        <button type="submit" class="btn btn-primary half" [disabled]="form.invalid">
           SUBMIT
-        </button>  |  <a routerLink="/">Back to Home</a>
+        </button>
+        <!-- | <a routerLink="/">Back to Home</a> -->
         <!-- <div class="mt-3" [hidden]="formMessageHidden">
           Success!
         </div> -->
