@@ -9,7 +9,7 @@ export class CommonService {
   constructor(private http: HttpClient) {}
 
   // private projectsurl = 'https://cms.yukayamamoto.me/api/lost-and-founds';
-  private newProjectsUrl = 'https://lostandfoundapis.herokuapp.com/';
+  private newProjectsUrl = 'https://lostandfoundapis.herokuapp.com';
 
 
   // get
@@ -33,29 +33,45 @@ export class CommonService {
     return this.http.put(this.newProjectsUrl + 'updateClaim/' + id, JSON.stringify(claim));
   }
 
-  editPost(
-    itemName: string,
-    location: string,
-    email: string,
-    phoneNumber: string,
-    description: string,
-    imageURL: string,
-    date: string,
-    name: string
-  ) {
-    let data = {
-      data: {
-        Title:itemName,
-        Location:location,
-        Email:email,
-        Phonenumber:phoneNumber,
-        Description: description,
-        Image:imageURL,
-        Date_found:date,
-        Contact_name: name
-      }
-    };
-    return this.http.put<LostItem>(this.newProjectsUrl, data);
+  // editPost(
+  //   itemName: string,
+  //   location: string,
+  //   email: string,
+  //   phoneNumber: string,
+  //   description: string,
+  //   imageURL: string,
+  //   date: string,
+  //   name: string
+  // ) {
+  //   let data = {
+  //     data: {
+  //       Title:itemName,
+  //       Location:location,
+  //       Email:email,
+  //       Phonenumber:phoneNumber,
+  //       Description: description,
+  //       Image:imageURL,
+  //       Date_found:date,
+  //       Contact_name: name
+  //     }
+  //   };
+  //   return this.http.put<LostItem>(this.newProjectsUrl, data);
+  // }
+
+  editPost(formdata:any) {
+    // let data = {
+    //   data: {
+    //     Title:itemName,
+    //     Location:location,
+    //     Email:email,
+    //     Phonenumber:phoneNumber,
+    //     Description: description,
+    //     Image:imageURL,
+    //     Date_found:date,
+    //     Contact_name: name
+    //   }
+    // };
+    return this.http.put(this.newProjectsUrl, formdata);
   }
 
 
