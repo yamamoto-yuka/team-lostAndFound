@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { LostItem } from '../interface/interface';
 
 @Injectable({
@@ -22,15 +22,16 @@ export class CommonService {
     return this.http.get(this.newProjectsUrl)
   }
 
-  getPostByID(id: number) {
-    return this.http.get(this.newProjectsUrl + id);
+  getPostByID(id: string) {
+    return this.http.get<{ data: LostItem }>(this.newProjectsUrl + '/' + id);
   }
 
-  claim(id: number) {
+  claim(id: string) {
     let claim = {
       claimed:true
     };
-    return this.http.put(this.newProjectsUrl + 'updateClaim/' + id, JSON.stringify(claim));
+    
+    return this.http.put(this.newProjectsUrl + '/updateClaim' + "/" +  id, JSON.stringify(claim))
   }
 
   // editPost(
@@ -71,7 +72,10 @@ export class CommonService {
     //     Contact_name: name
     //   }
     // };
-    return this.http.put(this.newProjectsUrl, formdata);
+    let id = formdata.get('id');
+
+
+    return this.http.put(this.newProjectsUrl + "/" + "editItem/" + id, formdata);
   }
 
 
