@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  claimItem(description:any, listcontainer:any, id:number){
+  claimItem(description:any, listcontainer:any, id:string){
     if(description.style.display == "block"){
       description.style.display = "none"; // example: "#f00"
     }else{

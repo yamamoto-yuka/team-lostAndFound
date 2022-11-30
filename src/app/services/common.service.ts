@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { LostItem } from '../interface/interface';
 
 @Injectable({
@@ -10,6 +10,7 @@ export class CommonService {
 
   // private projectsurl = 'https://cms.yukayamamoto.me/api/lost-and-founds';
   private newProjectsUrl = 'https://lostandfoundapis.herokuapp.com';
+  // private newProjectsUrl = 'http://localhost:3000';
 
 
   // get
@@ -22,15 +23,16 @@ export class CommonService {
     return this.http.get(this.newProjectsUrl)
   }
 
-  getPostByID(id: number) {
-    return this.http.get(this.newProjectsUrl + id);
+  getPostByID(id: string) {
+    return this.http.get<{ data: LostItem }>(this.newProjectsUrl + '/' + id);
   }
 
-  claim(id: number) {
+  claim(id: string) {
     let claim = {
       claimed:true
     };
-    return this.http.put(this.newProjectsUrl + 'updateClaim/' + id, JSON.stringify(claim));
+    
+    return this.http.put(this.newProjectsUrl + '/updateClaim' + "/" +  id, JSON.stringify(claim))
   }
 
   // editPost(
@@ -58,20 +60,18 @@ export class CommonService {
   //   return this.http.put<LostItem>(this.newProjectsUrl, data);
   // }
 
+
   editPost(formdata:any) {
-    // let data = {
-    //   data: {
-    //     Title:itemName,
-    //     Location:location,
-    //     Email:email,
-    //     Phonenumber:phoneNumber,
-    //     Description: description,
-    //     Image:imageURL,
-    //     Date_found:date,
-    //     Contact_name: name
-    //   }
-    // };
-    return this.http.put(this.newProjectsUrl, formdata);
+    // const headers= new HttpHeaders()
+    // .set('content-type', 'application/json')
+    // .set('Access-Control-Allow-Origin', '*');
+   
+  
+    let id = formdata.get('_id');
+
+
+    return this.http.put(this.newProjectsUrl + "/" + "editItem/" + id, formdata);
+    // return this.http.put(this.newProjectsUrl + "/" + "editItem/" + id, formdata, { 'headers': headers });
   }
 
 

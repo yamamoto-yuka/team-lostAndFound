@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../services/common.service';
 import { ActivatedRoute } from '@angular/router';
+import{Router} from '@angular/router'
 
 @Component({
   selector: 'app-lost-edit',
@@ -9,23 +10,26 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LostEditComponent implements OnInit {
 
-  title = "";
-  description = "";
-  identifying_question='';
-  image="";
-  date_found="";
-  location="";
-  contact_name="";
-  email="";
-  phonenumber="";
-  formMessageHidden =true;
-
-  filename:string= '';
-
-  myformdata:any;
+  itemId='string';
+  lostItem:any;
+    title = "";
+    description = "";
+    identifying_question='';
+    image="";
+    imageUrl='';
+    date_found="";
+    location="";
+    contact_name="";
+    email="";
+    phonenumber="";
+    formMessageHidden =true;
+  
+    filename:string= '';
+  
+    myformdata:any;
   
 
-  constructor(private cs:CommonService, private route:ActivatedRoute) { }
+  constructor(private cs:CommonService, private route:ActivatedRoute, private router:Router) { }
 
 
   trackFile(event:any){
@@ -57,30 +61,48 @@ export class LostEditComponent implements OnInit {
     formdata.append("email", this.email);
     formdata.append("phonenumber", this.phonenumber);
     formdata.append("date_found", this.date_found);
+    formdata.append("_id", this.itemId);
 
-    this.cs.editPost(formdata).subscribe(data=> {
-      this.formMessageHidden = false;
-      console.log(data)
-    })
+
+
+
+    this.cs.editPost(formdata).subscribe(data =>{
+          console.log(data)
+          console.log("checking from client")
+          this.router.navigate(['/']);
+     })
   }
 
 
 
   ngOnInit(): void {
-    let id:any = this.route.snapshot.paramMap.get("id");
-    this.cs.getPostByID(id).subscribe(res => {
-      console.log(res)
-      // this.title = res.title;
-      // this.image = productData.rating;
-      // this.location = productData.price;
-      // this.description = productData.stock;
-      // this.date_found = productData.description;
-      // this.identifying_question = productData.display;
-      // this.contact_name = productData.display;
-      // this.email = productData.display;
-      // this.phonenumber = productData.display;
-      // this.date = productData.display;
+    let lostItemId:any = this.route.snapshot.paramMap.get("id");
+    this.cs.getPostByID(lostItemId).subscribe((res)=>{
+
+          console.log("res is ", res);
+          this.lostItem = res;
+          this.itemId = this.lostItem._id
+          this.title = this.lostItem.title
+          this.description = this.lostItem.description;
+          this.identifying_question=this.lostItem.identifying_question;
+          this.imageUrl=this.lostItem.image;
+          this.date_found=this.lostItem.date_found;
+          this.location=this.lostItem.location;
+          this.contact_name=this.lostItem.contact_name;
+          this.email=this.lostItem.email;
+          this.phonenumber=this.lostItem.phonenumber;
+
+          console.log(this.date_found)
+          console.log(this.itemId)
+
+
+
+
+
+
+
     })
   }
+
 
 }
