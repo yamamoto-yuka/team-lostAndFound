@@ -61,10 +61,12 @@ export class LostEditComponent implements OnInit {
     formdata.append("email", this.email);
     formdata.append("phonenumber", this.phonenumber);
     formdata.append("date_found", this.date_found);
+    formdata.append("_id", this.itemId);
 
 
 
-    this.cs.addPost(formdata).subscribe(data =>{
+
+    this.cs.editPost(formdata).subscribe(data =>{
           console.log(data)
           console.log("checking from client")
           this.router.navigate(['/']);

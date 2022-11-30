@@ -10,6 +10,7 @@ export class CommonService {
 
   // private projectsurl = 'https://cms.yukayamamoto.me/api/lost-and-founds';
   private newProjectsUrl = 'https://lostandfoundapis.herokuapp.com';
+  // private newProjectsUrl = 'http://localhost:3000';
 
 
   // get
@@ -59,23 +60,18 @@ export class CommonService {
   //   return this.http.put<LostItem>(this.newProjectsUrl, data);
   // }
 
+
   editPost(formdata:any) {
-    // let data = {
-    //   data: {
-    //     Title:itemName,
-    //     Location:location,
-    //     Email:email,
-    //     Phonenumber:phoneNumber,
-    //     Description: description,
-    //     Image:imageURL,
-    //     Date_found:date,
-    //     Contact_name: name
-    //   }
-    // };
-    let id = formdata.get('id');
+    // const headers= new HttpHeaders()
+    // .set('content-type', 'application/json')
+    // .set('Access-Control-Allow-Origin', '*');
+   
+  
+    let id = formdata.get('_id');
 
 
     return this.http.put(this.newProjectsUrl + "/" + "editItem/" + id, formdata);
+    // return this.http.put(this.newProjectsUrl + "/" + "editItem/" + id, formdata, { 'headers': headers });
   }
 
 
