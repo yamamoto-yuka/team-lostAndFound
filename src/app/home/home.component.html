@@ -1,14 +1,13 @@
-
-
-
-
-<div class="mainContainer">
-  <h1 class="heading">Lost Items</h1>
+<div class="header">
+  <h1 class="heading">Lost and Found</h1>
   <div class="submitBtn_wrapper">
     <a href="#" routerLink="/lostInput">
-      <button class="btn submitButton">Submit an ITEM</button>
+      <button class="btn submitButton">Submit Found Item</button>
     </a>
   </div>
+</div>
+<div class="mainContainer">
+  <p class="instruction">Did you lost somethig? You can check the item and contact the person who found!</p>
   <section class="listContainer" *ngFor="let post of posts; let i = index"><!--ngfor loop-->
     <div #listcontainer class="itemCard"><!--conditional class lost or found?-->
       <div class="row">
@@ -19,14 +18,13 @@
               <div>Posted: {{dateString[i]}}</div>
             </div>
             <div>
-              <div class="date"><span class="bold">Date: </span>{{post.date_found}} </div>
+              <div class="date"><span class="bold">Found Date: </span>{{post.date_found}} </div>
               <div class="location"><span class="bold" class="bold">Location: </span>{{post.location}}</div>
 
             </div>
           </div>
         </div>
         <div class="col-6">
-
           <div class="card-image">
             <img
               [src]="post.image"
@@ -62,10 +60,10 @@
           </div>
         </div>
         <div class="Btn_wrapper">
-          <button (click)="claimItem(description, listcontainer, post.id)" class="btn claimBtn">
+          <button (click)="claimItem(description, listcontainer, post._id)" class="btn claimBtn">
             Claim
           </button>
-          <a href="#" routerLink="/lostEdit">
+          <a href="#" [routerLink]="['/lostEdit', post._id]">
             <button class="btn">Edit Item</button>
           </a>
         </div>

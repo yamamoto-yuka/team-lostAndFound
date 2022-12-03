@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:"posts", component:PostsComponent},
   {path:"posts/:id", component:PostdetailsComponent},
   {path:"lostInput", component:LostInputComponent},
-  {path:"lostEdit", component:LostEditComponent},
+  {path:"lostEdit/:id", component:LostEditComponent},
   {path:"foundInput", component:FoundInputComponent}
 ];
 

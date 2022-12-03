@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   claim:boolean = false;
   public isCollapsed: boolean[] = [];
 
-  constructor(private http:CommonService) { }
+  constructor(private cs:CommonService) { }
 
   getDescription(description:any){
     if(description.style.display == "none"){
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  claimItem(description:any, listcontainer:any, id:number){
+  claimItem(description:any, listcontainer:any, id:string){
     if(description.style.display == "block"){
       description.style.display = "none"; // example: "#f00"
     }else{
@@ -44,13 +44,13 @@ export class HomeComponent implements OnInit {
       listcontainer.style.backgroundColor = "";
     }
 
-    this.http.claim(id).subscribe(res => {
-      console.log("Claim completed")
+    this.cs.claim(id).subscribe(res => {
+      console.log("Claim completed");
     })
   }
 
   ngOnInit(): void {
-    this.http.getAllposts().subscribe(posts =>{
+    this.cs.getAllposts().subscribe(posts =>{
       this.posts = posts;
       for(let i = 0; i < this.posts.length; i++) {
         this.dateString.push(new Date(this.posts[i].date).toDateString());
