@@ -125,56 +125,6 @@ label{
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.form-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.box{
-  padding: 10px;
-}
-
-.half{
-  width: 33%;
-}
-
-.full{
-  width: 100%;
-}
-
-input,textarea{
-  font-size: .8rem;
-  border: none;
-  color: #4d4d4d;
-}
-
-input:focus{
-  border:1px solid #1477EC;
-  caret-color:#1477EC;
-  box-shadow: none;
-}
-
-label{
-  color: #4d4d4d;
-  font-size: .8rem;
-}
-
-.alert{
-  padding: 0;
-  margin: 0 auto;
-  font-size: 0.7rem;
-  color: #1477EC;
-}
-
-.btn{
-  width:100%;
-  border: 2px solid black;
-  background-color: #1477EC;
-  box-shadow: 5px 5px #888888;
-}
-
 
 @media screen and (max-width: 768px) {
   .post-wrap {

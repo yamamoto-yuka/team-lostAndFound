@@ -101,22 +101,13 @@
         <!-- <div
         class="alert alert-danger"
         role="alert"
-<<<<<<< HEAD
-        *ngIf="title_.touched && title_.invalid"
-=======
         *ngIf="image.touched && image.invalid"
->>>>>>> master
       >
         Please enter
       </div> -->
       </div>
  
 
-<<<<<<< HEAD
-      <!-- Location -->
-      <div class="mb-2 box half">
-        <label for="location" class="form-label">Location Found</label>
-=======
       <!-- Desc -->
       <div class="mb-2 box full">
         <label for="description" class="form-label">Description</label>
@@ -143,12 +134,11 @@
       <!-- Image -->
       <!-- <div class="mb-3">
         <label for="iamge" class="form-label">Item Image URL <span class="required-label">*Required</span></label>
->>>>>>> master
         <input
-          name="location"
-          #location_="ngModel"
-          [(ngModel)]="location"
-          id="location"
+          name="image"
+          #image_="ngModel"
+          [(ngModel)]="image"
+          id="iamge"
           type="text"
           class="form-control"
           required
@@ -158,69 +148,11 @@
       <!-- <div
         class="alert alert-danger"
         role="alert"
-        *ngIf="location_.touched && location_.invalid"
+        *ngIf="image_.touched && image_.invalid"
       >
         Please enter
       </div> -->
 
-<<<<<<< HEAD
-      <!-- Date -->
-      <div class="mb-3 box half">
-        <label for="date_found" class="form-label">Date Found</label>
-        <input
-          name="date_found"
-          #date_found_="ngModel"
-          [(ngModel)]="date_found"
-          id="date_found"
-          type="date"
-          class="form-control"
-          required
-        />
-      </div>
-      <div
-        class="alert alert-danger"
-        role="alert"
-        *ngIf="date_found_.touched && date_found_.invalid"
-      >
-        Please enter
-      </div>
-
-      <!-- image -->
-      <div class="mb-2 box full">
-        <label for="description" class="form-label">Image </label>
-
-        <input
-          name="iamge"
-          #image_="ngModel"
-          [(ngModel)]="image"
-          type="file"
-          (change)="trackFile($event)"
-          class="form-control"
-          id="imageUrl"
-          name="image"
-        />
-        <!-- <div
-              class="alert alert-danger"
-              role="alert"
-              *ngIf="image.touched && image.invalid"
-            >
-              Please enter
-            </div> -->
-      </div>
-
-      <!-- Desc -->
-      <div class="mb-2 box full">
-        <label for="description" class="form-label">Description</label>
-        <textarea
-          name="description"
-          #description_="ngModel"
-          [(ngModel)]="description"
-          id="name"
-          type="text"
-          class="form-control"
-          required
-          minlength="1"
-=======
       <!-- Indentifying question -->
 
       <div class="mb-2 box full">
@@ -234,47 +166,20 @@
           id="identifying_question"
           type="textarea"
           class="form-control"
->>>>>>> master
         ></textarea>
       </div>
       <!-- <div
         class="alert alert-danger"
         role="alert"
-<<<<<<< HEAD
-        *ngIf="description_.touched && description_.invalid"
-=======
         *ngIf="identifying_question_.touched && identifying_question_.invalid"
->>>>>>> master
       >
         Please enter
       </div> -->
 
       <!-- Contact name -->
 
-<<<<<<< HEAD
-      <!-- Indentifying question -->
-
-      <div class="mb-2 box full">
-        <label for="identifying_question" class="form-label"
-          >Indentifying Question</label
-        >
-        <textarea
-          name="identifying_question"
-          #identifying_question_="ngModel"
-          [(ngModel)]="identifying_question"
-          id="identifying_question"
-          type="textarea"
-          class="form-control"
-        ></textarea>
-      </div>
-
-      <!-- Name -->
-      <div class="mb-2 box half">
-        <label for="contact_name" class="form-label">Finder Name</label>
-=======
       <div class="mb-2 box half">
         <label for="contact_name" class="form-label"> Contact Name </label>
->>>>>>> master
         <input
           name="contact_name"
           #contact_name_="ngModel"
@@ -316,34 +221,18 @@
 
       <!-- Phone Number-->
       <div class="mb-2 box half">
-<<<<<<< HEAD
-        <label for="phonenumber" class="form-label">Finder Phone Number </label>
-        <input
-          name="phonenumber"
-          #phonenumber_="ngModel"
-          [(ngModel)]="phonenumber"
-          id="phonenumber"
-=======
         <label for="phoneNumber" class="form-label">Finder Phone Number </label>
         <input
           name="phoneNumber"
           #phoneNumber_="ngModel"
           [(ngModel)]="phonenumber"
           id="phoneNumber"
->>>>>>> master
           type="tel"
           class="form-control"
           required
         />
       </div>
 
-<<<<<<< HEAD
-      <div class="wrap box full">
-        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
-          Edit
-        </button>
-        <div class="mt-3" [hidden]="formMessageHidden">Success!</div>
-=======
       <div class="wrap box btn-box">
         <button type="submit" class="btn btn-primary half">
           SUBMIT
@@ -352,7 +241,6 @@
         <!-- <div class="mt-3" [hidden]="formMessageHidden">
           Success!
         </div> -->
->>>>>>> master
       </div>
     </form>
   </div>

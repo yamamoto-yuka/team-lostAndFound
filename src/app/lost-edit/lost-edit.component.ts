@@ -40,11 +40,6 @@ export class LostEditComponent implements OnInit {
     this.filename = myfile;
     // it is an array so you need to target which index you want //
     console.log('new' + myfile);
-<<<<<<< HEAD
-  }
-
-
-=======
 
 
 
@@ -82,7 +77,6 @@ export class LostEditComponent implements OnInit {
 
 
 
->>>>>>> master
   // submit(itemName:any, description:any, image:any, date:any, location:any,name:any,email:any, phoneNumber:any ) {
   //   this.cs.editPost(itemName,description,image,date,location,name,email,phoneNumber).subscribe(data=> {
   //     this.formMessageHidden = false;
@@ -103,13 +97,6 @@ export class LostEditComponent implements OnInit {
     formdata.append("email", this.email);
     formdata.append("phonenumber", this.phonenumber);
     formdata.append("date_found", this.date_found);
-<<<<<<< HEAD
-
-    this.cs.editPost(formdata).subscribe(data=> {
-      this.formMessageHidden = false;
-      console.log(data)
-    })
-=======
     formdata.append("_id", this.itemId);
 
 
@@ -120,7 +107,6 @@ export class LostEditComponent implements OnInit {
           console.log("checking from client")
           this.router.navigate(['/']);
      })
->>>>>>> master
   }
 
 
