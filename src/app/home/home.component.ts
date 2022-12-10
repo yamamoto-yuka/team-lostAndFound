@@ -52,6 +52,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.cs.getAllposts().subscribe(posts =>{
       this.posts = posts;
+      this.posts = this.posts.sort((x:any,y:any)=> x.date > y.date?-1:1)
       for(let i = 0; i < this.posts.length; i++) {
         this.dateString.push(new Date(this.posts[i].date).toDateString());
         console.log(this.dateString)

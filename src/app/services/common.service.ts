@@ -27,12 +27,11 @@ export class CommonService {
     return this.http.get<{ data: LostItem }>(this.newProjectsUrl + '/' + id);
   }
 
-  claim(id: string) {
+  claim(id: any) {
     let claim = {
       claimed:true
     };
-    
-    return this.http.put(this.newProjectsUrl + '/updateClaim' + "/" +  id, JSON.stringify(claim))
+    return this.http.put(this.newProjectsUrl + '/updateClaim/' +  id, claim)
   }
 
   // editPost(
@@ -65,8 +64,8 @@ export class CommonService {
     // const headers= new HttpHeaders()
     // .set('content-type', 'application/json')
     // .set('Access-Control-Allow-Origin', '*');
-   
-  
+
+
     let id = formdata.get('_id');
 
 
