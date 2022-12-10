@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonService } from '../services/common.service';
 import { ActivatedRoute } from '@angular/router';
 import{Router} from '@angular/router'
@@ -28,9 +28,11 @@ export class LostEditComponent implements OnInit {
   
     myformdata:any;
   
+    file:any = null;
+    imgSrc:any = "";
+    show = false;
 
   constructor(private cs:CommonService, private route:ActivatedRoute, private router:Router) { }
-
 
   trackFile(event:any){
     console.log(event);
@@ -38,7 +40,40 @@ export class LostEditComponent implements OnInit {
     this.filename = myfile;
     // it is an array so you need to target which index you want //
     console.log('new' + myfile);
+
+
+
+    // If new file is not selected
+    console.log(event.target.files.length);
+    if(event.target.files.length === 0){
+      this.file = null;
+      this.imgSrc="";
+      return;
+    }
+    // If new file is selected
+    else{
+      this.show = true;
+      // Create FileReader
+      let reader = new FileReader();
+      console.log('FileReader',reader);
+
+      // Set files to be read
+      this.file = event.target.files[0];
+      console.log('event.target.files[0]',this.file);
+
+      // Event on completion of loading
+      reader.onload = () =>{
+        // Convert image file to base64 string
+        this.imgSrc = reader.result;
+        console.log('resultイベント',this.imgSrc);
+      }
+
+      // Perform file loading
+      reader.readAsDataURL(this.file);
+    }
   }
+
+
 
 
   // submit(itemName:any, description:any, image:any, date:any, location:any,name:any,email:any, phoneNumber:any ) {
